@@ -1,0 +1,8 @@
+class Cart < ActiveRecord::Base
+  def self.sub_total
+    @sub=0
+    session[:cart].split(',').each do |e|
+      @sub=@sub+e.split('-').last.to_f
+    end
+  end    
+end

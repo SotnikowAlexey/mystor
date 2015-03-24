@@ -1,0 +1,8 @@
+class OrdersController < ApplicationController
+  def new_order
+    Order.create(name: params['name'],adress: params['adress'], cart: params['cart'], sub: params['sub'])
+    if (params['name']!="") and (params['adress']!="")
+      session[:cart]=nil
+    end
+  end
+end

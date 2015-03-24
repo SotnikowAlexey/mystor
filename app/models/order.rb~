@@ -1,0 +1,4 @@
+class Order < ActiveRecord::Base
+  validates :name, presence: false
+  validates :adress, presence: false
+end
