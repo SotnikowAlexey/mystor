@@ -3,9 +3,6 @@ module CartsHelper
     @sub=0
     if prod!=0
       prod.each do |e|
-          el=e.split('-')
-          puts "element"
-          puts el
           @sub=@sub+e.split('-').last.to_f
       end
     end

@@ -3,6 +3,6 @@ class ProductsController < ApplicationController
     @products=Product.all
   end
   def show
-    @product=Product.find(params["name"])
+    @product=Product.find_by_id(params["name"])
   end
 end

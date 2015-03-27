@@ -1,4 +1,13 @@
 class Order < ActiveRecord::Base
-  validates :name, presence: false
-  validates :adress, presence: false
+  belongs_to :user
+  validates :name, presence: true
+  validates :adress, presence: true
+  def self.add
+    if session[:user]
+      user=User.find_by_id(session[:user])
+      user.orders.create(name: User.find_by_id(session[:user])['name'],adress: params['adress'], cart: params['cart'], sub: params['sub'],date: Time.now)
+    else
+      Order.create(name: params['name'],adress: params['adress'], cart: params['cart'], sub: params['sub'])
+    end
+  end
 end

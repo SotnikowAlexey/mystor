@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 20150323225155) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.string "name"
-    t.text   "adress"
-    t.text   "cart"
-    t.float  "sub"
+    t.integer "user_id"
+    t.date    "date"
+    t.string  "name"
+    t.text    "adress"
+    t.text    "cart"
+    t.float   "sub"
   end
 
   create_table "products", force: :cascade do |t|

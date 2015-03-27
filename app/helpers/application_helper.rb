@@ -1,7 +1,9 @@
 module ApplicationHelper
   def user?
     if session[:user]
-      session[:user]
+      if User.find_by_id(session[:user])
+        User.find_by_id(session[:user])['name']
+      end
     else
       false
     end

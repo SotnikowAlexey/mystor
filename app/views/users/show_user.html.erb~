@@ -1,0 +1,2 @@
+<%= @user['name']%> <%= @user['email']%>
+<%= Order.find_by_user_id(@user['id'])%>

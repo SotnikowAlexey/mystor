@@ -1,13 +1,13 @@
 module ApplicationHelper
   def user?
     if session[:user]
-      session[:user]
+      #User.find_by_id(session[:user])['name']
     else
       false
     end
   end
   def authorization?
-    if (request.path=='/') and (session[:user]==false)
+    if (request.path=='/') and (session[:user]==nil)
       true
     else
       false

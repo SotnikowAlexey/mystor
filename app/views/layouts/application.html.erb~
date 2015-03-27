@@ -5,15 +5,15 @@
 <style type="text/css">.block1 {  width: 150px;border: solid 1px black; }</style>
 </head><br/><body >
 <% if authorization? %>
-  <div class="block1"><form method="POST" action="/user/in">
+  <div class="block1"><form method="POST" action="/users/:id">
         <input size="10" required name="name" type="text">Your name<br/>
-        <input size="10" name="password" type="text">password<br/>
+        <input TYPE="password" size="10" required name="password" type="text">password<br/>
         <button type="submit"> Sign in </button>
         </form> 
-       <a href="/user/new">New User</a></div>
+       <a href="/users/new">New User</a></div>
 <% end %>
-<% if user? %>
-  <div class="block1"> <%= user? %> <a href="/user/out">Sign out</a></div>
+<% if user? != false %>
+  <div class="block1"> <%= user? %> <a href="/users/:id/edit">Sign out</a>  <a href="/user/show">Your info</a></div>
 <% end %>
   <div align="center">
 <%= yield %>

@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  protect_from_forgery with: :session
   def index
     @products=Product.all
   end
