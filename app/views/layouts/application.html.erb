@@ -4,16 +4,25 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <style type="text/css">.block1 {  width: 150px;border: solid 1px black; }</style>
 </head><br/><body >
-<% if authorization? %>
-  <div class="block1"><form method="POST" action="/users/:id">
-        <input size="10" required name="name" type="text">Your name<br/>
-        <input TYPE="password" size="10" required name="password" type="text">password<br/>
-        <button type="submit"> Sign in </button>
-        </form> 
-       <a href="/users/new">New User</a></div>
-<% end %>
-<% if user? != false %>
-  <div class="block1"> <%= user? %> <a href="/users/:id/edit">Sign out</a>  <a href="/users/show">Your info</a></div>
+<% if (user_signed_in? == false)and(request.path == '/')%>
+  <div>       
+  <a href="/users/sign_in"><button >Sign in</button></a>
+  </div>
+  <%else%>
+    <% if user_signed_in? %>
+       <div align="center" class="block1"> 
+        <%= current_user.email %>      
+        <form method="POST"  action="/users/sign_out">
+        <input name="_method" type="hidden" value="delete">
+        <% if current_user.admin == true %>
+            <a href="/admin">options</a>
+        <%else %>
+            <a href="/users">info</a>
+        <%end%>
+        <button type="submit">Sign out</button>           
+      </form> 
+    </div>
+    <% end %>
 <% end %>
   <div align="center">
 <%= yield %>

@@ -1,0 +1,8 @@
+<% if @orders%>
+<%@orders.each do |e| %>
+  name:<%=e.name%> adress:<%=e.adress%> cart:<%= Order.new.cart_show(e.cart)%>
+  total:<%=e.sub%>
+  <br/>
+  <%end%>
+    sub_total:<%=Order.new.sub_orders(current_user.orders)%>
+<%end%>

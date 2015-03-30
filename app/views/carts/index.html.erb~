@@ -4,13 +4,13 @@
         <input name="name" value="delet_product" type="hidden">
         <input name="product" value="<%=e['id']%>" type="hidden"></form>
    <%end%>
-      sub total is <%= Cart.sub_total(@cart)%><br/>
+      sub total is <%= Cart.new.sub_total(@cart)%><br/>
       <form method="POST" action="/carts">
         <button type="submit">delete all</button>
         <input name="name" value="delet" type="hidden"><br/> <br/>           
       </form> 
         
-      <form method="POST" action="/order">
+      <form method="POST" action="/orders">
         <% unless session[:user] %>  
         <input name="name" type="text">  Your name<br/>
         <%end%>

@@ -1,7 +1,7 @@
 <b><%= @product['name'] %></b> <br /><i> Price: <%= @product['price'].to_s %>
-</i><br/> <img src=<%= @product['img'] %> > <br/><i>Info:<%= @product['info'] %></i><br/>
+</i><br/> <img src=<%= @product['name']+'.img' %> > <br/><i>Info:<%= @product['info'] %></i><br/>
 <form method="POST" action="/carts">
 <button type="submit">add to cart</button>
 <input name="name" value="<%= @product.id %>" type="hidden">
 </form><br/>
-<a href="/cart">Go to Cart</a>	       
+<a href="/carts">Go to Cart</a>	<br/>       

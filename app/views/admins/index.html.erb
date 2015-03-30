@@ -1,0 +1,16 @@
+<a href="/orders">ORDERS</a><br/>
+<a href="/admin/users">USERS</a><br/>
+<a href="/products/new">New product</a>
+<form method="POST"  action="/products/:id">
+        <input name="_method" type="hidden" value="delete">
+        ID_product<input name="id_product" size="1" type="text" >
+        <button type="submit">delet product</button>           
+      </form> 
+<form method="POST"  action="/products/:id">
+        <input name="_method" type="hidden" value="put">
+Upgrade ID_product<input name="id_product" size="1" type="text">
+        Example: name=product,...
+        <input name="up_product" type="text" >
+        <button type="submit">upgrade</button>           
+      </form> 
+

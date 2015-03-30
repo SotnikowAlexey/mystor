@@ -1,0 +1,10 @@
+class AdminsController < ApplicationController
+  before_action :authenticate_user!
+  before_filter :ensure_admin!
+  def index
+  end
+  def user_all
+    @users=[]
+    @users=User.select(:id)
+  end 
+end

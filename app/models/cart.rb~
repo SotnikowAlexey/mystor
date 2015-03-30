@@ -1,15 +1,14 @@
 class Cart < ActiveRecord::Base
-  def self.show(cart)
-    if cart
-      @cart=[]
-      @cart1=cart.split(',')
-      @cart1.each do |e|
-        @cart << Product.find_by_id(e)
+  def show(session)
+    if session
+      cart=[]
+      session.each do |e|
+        cart << Product.find_by_id(e)
       end 
     end
-    @cart
+    cart
   end   
-  def self.sub_total(prod=0)
+  def sub_total(prod=0)
     @sub=0
     if prod!=0
       prod.each do |e|
@@ -18,26 +17,27 @@ class Cart < ActiveRecord::Base
     end
     @sub
   end  
-  def self.delete_cart_id(cart,id)
-    cart_new=cart.split(',')
+  def delete_cart_id(cart,id)
     delet_i=0
-    for i in(0..cart_new.size-1)
-      if cart_new[i]==id
+    for i in(0..cart.size-1)
+      if cart[i]==id
         delet_i=i
         break
       end
     end
-    cart_new.delete_at(delet_i)
-    session=''         
-    cart_new.each {|e| session << e.to_s+','}
-    session
+    cart.delete_at(delet_i)
+    if cart==[]
+      cart=nil
+    end
+    cart        
   end
-  def self.cart(name,session)
+  def cart(name,session)
     product=Product.find_by_id(name)
     unless session
-      session = product['id'].to_s+','
+      session = []
+      session << product['id']
     else
-      session << product['id'].to_s+','
+      session << product['id']
     end
   end
 end

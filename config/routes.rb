@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'products#index'
-  post '/users/:id' => 'users#user_in' 
+  devise_for :users  
   resources :products, :carts, :orders, :users
+  get 'admin' => 'admins#index'
+  get 'admin/users' => 'admins#user_all'
 end

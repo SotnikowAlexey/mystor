@@ -1,8 +1,24 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate_user!, except: [:create, :show]
+  before_filter :ensure_admin!, except: [:create, :show]
   def create
-    Order.add(session[:user],params)
+    Order.new.add(current_user,params)
+    if (params['name']!="") and (params['adress']!="")
+      session[:cart]=nil
+    end
   end
   def index
     @orders=Order.all
+  end
+  def show
+    @orders= if Order.all!=[] 
+               current_user.orders 
+             else 
+               nil
+             end
+  end
+  def destroy
+    Order.delete(params['id_order'])
+    redirect_to '/orders'
   end
 end

@@ -1,4 +1,0 @@
-<%= @user['name']%>  <%= @user['email']%><br/>
-<%@user.orders.each do |e| %>
-   order sub <%=e['sub']%>: <%=User.cart(e['cart'])%><br/>
-   <%end%>

@@ -1,2 +1,9 @@
 <%=@orders.each do |e| %>
   <%end%>
+  SUB_TOTAL<%=Order.new.sub_orders%>
+<form method="POST"  action="/orders/:id">
+        <input name="_method" type="hidden" value="delete">
+        <input name="id_order" size="1" type="text" >
+        <button type="submit">delet order</button>           
+      </form> 
+ <a href="/admin">admin options</a><br/>

@@ -1,0 +1,15 @@
+module ProductsHelper
+  def string_to_hstore(string)
+  if string.nil?
+    nil
+  elsif String === string
+    Hash[string.scan(HstorePair).map { |k, v|
+      v = v.upcase == 'NULL' ? nil : v.gsub(/A"(.*)"Z/m,'').gsub(/(.)/, '')
+      k = k.gsub(/A"(.*)"Z/m,'').gsub(/(.)/, '')
+      [k, v]
+    }]
+  else
+    string
+  end
+end
+end
