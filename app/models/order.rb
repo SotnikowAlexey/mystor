@@ -2,7 +2,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   validates :name, presence: true
   validates :adress, presence: true
-  def add(user,params)
+  validates :cart, presence: true
+  validates :sub, presence: true
+  validates :date, presence: true
+  def add(user=nil,params)
     if user
       user_new=User.find_by_id(user)
       user_new.orders.create(name: params['name'],adress: params['adress'], cart: params['cart'], sub: params['sub'],date: Time.now)

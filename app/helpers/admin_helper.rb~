@@ -4,7 +4,4 @@ module AdminHelper
       'ID'+id_product.to_s         
     end 
   end
-  def user_all
-    @users=User.all
-  end 
 end

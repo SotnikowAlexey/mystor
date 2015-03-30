@@ -26,10 +26,10 @@ class Cart
       end
     end
     cart.delete_at(delet_i)
-    if cart==[]
-      cart=nil
-    end
-    cart        
+      if cart==[]
+        cart=nil
+      end
+    cart
   end
   def cart(name,session)
     product=Product.find_by_id(name)

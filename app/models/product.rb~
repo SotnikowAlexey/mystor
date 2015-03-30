@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
       params_new={}
       el=e.split('=')  
       params_new[el[0]]=el[1]
-        if attribut.detect {|e| e==el[0]})
+        if attribut.detect {|e| e==el[0]}
           Product.update(id, params_new)
         end
     end          

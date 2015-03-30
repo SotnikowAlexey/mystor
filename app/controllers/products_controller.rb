@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     @product=Product.find_by_id(params["name"])
   end
   def create
-    Product.create(name: params[:name],price: params[:price],img: params[:img],info: params[:info])
+    Product.create(name: params[:name],price: params[:price],info: params[:info])
     redirect_to '/'
   end
   def destroy

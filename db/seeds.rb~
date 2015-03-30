@@ -8,5 +8,5 @@
 Product.create(name: "Lenovo",price: 6500,img: "1.jpg",info: "Android 4.2 memory 8gb  camera 8mpx")
 Product.create(name: "Samsung",price: 3500,img: "2.jpg",info: "Android 4.2 memory 4gb  camera 3mpx")
 Product.create(name: "Sony",price: 4800,img: "3.jpg ",info: "Android 4.1 memory 8gb  camera 8mpx")
-Product.create("LG",4950,"4.jpg","Android 4.3 memory 8gb  camera 12mpx")
-Product.create("HTC",4700,"5.jpg","Android 4.5 memory 8gb  camera 12mpx")
+Product.create(name: "LG",price: 4950,img: "4.jpg",info: "Android 4.3 memory 8gb  camera 12mpx")
+Product.create(name: "HTC",price: 4700,img: "5.jpg",info: "Android 4.5 memory 8gb  camera 12mpx")

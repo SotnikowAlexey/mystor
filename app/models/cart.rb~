@@ -1,4 +1,4 @@
-class Cart < ActiveRecord::Base
+class Cart 
   def show(session)
     if session
       cart=[]
@@ -25,11 +25,15 @@ class Cart < ActiveRecord::Base
         break
       end
     end
-    cart.delete_at(delet_i)
-    if cart==[]
-      cart=nil
-    end
-    cart        
+    if delet_i  
+      cart.delete_at(delet_i)
+    else
+      if cart==[]
+        cart=nil
+      else
+        cart
+      end
+    end        
   end
   def cart(name,session)
     product=Product.find_by_id(name)
