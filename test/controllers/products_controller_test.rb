@@ -1,13 +1,10 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "should get index product" do
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
-  end
-  test "should  get show" do
-    get :show
-    
+    assert_template :index
   end
 end

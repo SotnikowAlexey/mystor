@@ -1,8 +1,0 @@
-<%=@users.each do |e| %>
-  <%end%>
-  <form method="POST"  action="/products/:id">
-        <input name="_method" type="hidden" value="delete">
-        <input name="id_user" size="1" type="text" >
-        <button type="submit">delet user</button>           
-      </form> 
- <a href="/admin">admin options</a><br/>

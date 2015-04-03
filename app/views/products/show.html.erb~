@@ -1,5 +1,5 @@
 <b><%= @product.name %></b> <br /><i> Price: <%= @product.price %>
-</i><br/> <img src=<%= @product.name +'.jpg' %> > <br/><i>Info:<%= @product.info%></i><br/>
+</i><br/> <img src=<%= @product.image.url> <br/><i>Info:<%= @product.info %></i><br/>
 <form method="POST" action="/carts">
 <button type="submit">add to cart</button>
 <input name="name" value="<%= @product.id %>" type="hidden">

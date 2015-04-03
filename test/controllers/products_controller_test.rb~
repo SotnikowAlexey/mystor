@@ -1,14 +1,14 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "should get index product" do
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
+    assert_template :index
   end
-  test "should  get show" do
-    @request.headers["HTTP_REFERER"] = "http://localhost:3000/products/:id"
-    get :show
-    
+  test "create product"
+    assert_difference('Product.count') do
+    post :create, params: { product: {name: "Lenovo",price: 6500,info: "Android 4.2 memory 8gb  camera 8mpx"} }
   end
 end

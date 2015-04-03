@@ -5,7 +5,6 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   include Devise::TestHelpers
-  include Paginate::TestHelpers
   Product.create(name: "Lenovo",price: 6500,info: "Android 4.2 memory 8gb  camera 8mpx")
 Product.create(name: "Samsung",price: 3500,info: "Android 4.2 memory 4gb  camera 3mpx")
 Product.create(name: "Sony",price: 4800,info: "Android 4.1 memory 8gb  camera 8mpx")

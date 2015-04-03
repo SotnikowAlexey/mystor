@@ -11,11 +11,7 @@ class OrdersController < ApplicationController
     @orders=Order.all
   end
   def show
-    @orders= if Order.all!=[] 
-               current_user.orders 
-             else 
-               nil
-             end
+    @orders=current_user.orders             
   end
   def destroy
     Order.delete(params['id_order'])

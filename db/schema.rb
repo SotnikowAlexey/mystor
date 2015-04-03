@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150329134424) do
     t.string "name"
     t.float  "price"
     t.text   "info"
-    t.string "img"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|

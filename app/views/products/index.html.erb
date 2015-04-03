@@ -2,7 +2,7 @@
 <% @products.each do |e| %>
       <td align="center"><b><%= e.name %> <%=admin_show(e.id)%></b><br/><i> price: <%= e.price%> </i><br/> 
         <form method="GET" action="/products/<%=e.id%>"> 
-          <button type="submit"><img src="<%='products/'+e.name+'.jpg'%>"></button>
+          <button type="submit"><img src="<%=e.image.thumb.url %>"></button>
           <input name="name" value="<%= e.id %>" type="hidden">         
         </form> 
       <form method="POST" action="/carts">
