@@ -1,0 +1,11 @@
+<%=form_for(Product.new,method: :put,:url => { :action => "update" }) do |f|%>
+  id <%=f.text_field('id','required'=>'true')%><br/>            
+  name<%=f.text_field :name%><br/>
+  price<%=f.text_field :price%><br/>
+  info<%=f.text_field :info%><br/>
+  <%=f.submit 'Update' %>
+<%end%>
+<%=form_for(Product.new,method: :delete,:url => { :action => "destroy" } ) do |f|%>
+  id <%=f.text_field :id %><br/>            
+  <%=f.submit 'Delete' %>
+<%end%>
